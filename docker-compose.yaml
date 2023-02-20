@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  backend:
+    build: ./backend-flask
+    volumes:
+      - ./backend-flask:/backend-flask
+    ports:
+      - 4567:4567
+    env_file:
+      - ./backend-flask/.env
+  frontend:
+    build: ./frontend-react-js
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend-react-js:/frontend-react-js
+    env_file:
+      - ./frontend-react-js/.env
